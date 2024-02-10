@@ -1,0 +1,93 @@
+Fiilispäiväkirja skeema
+
+
+Käyttäjät :
+	{
+	id: AAAAA,
+	rooli: avustaja
+	etunimi: Aku,
+	sukunimi: Ankka,
+	kaupunki: Ankkalinna,
+	estää: [BBBBB,CCCCC],
+	estävät: [DDDDDD]
+	}
+
+päiväkirja : 
+	{
+	päiväkirjat : [id1, id2, id3]
+	}
+
+käyttäjän_päiväkirja : 
+	{
+	id: BBBBB,
+	käyttäjä_id: AAAAA,
+	edelliset_fiilikset: [1,2,3,4,5],
+	kirjaukset: [CCCCC, DDDDD, ..., FFFFF]
+	}
+
+päiväkirja_kirjaus :
+	{
+	id: CCCCC,
+	kirjattu: 1.1.2024,
+	päiväkirja_id: BBBBB,
+	päivän_fiilis: 5,
+	sisältö: tekstiä
+	}
+
+
+
+Tietopankki skeema
+
+Tietopankki_kirjaus :
+	{
+	id: AAAAA,
+	lisätty: 1.1.2024,
+	muokattu: 2.1.2024,
+	lisännyt: {id: AAAAA}
+	sisältö: {Otsikko: Juttu, Teksti: "tekstiä jossain muodossa"},
+	linkit: [linkki1,linkki2]
+	}
+
+
+
+
+Foorumi 
+
+Käyttäjät: 
+	{
+	käyttäjäID
+	etunimi
+	sukunimi
+	salasana
+	sähköposti
+	käyttäjärooli
+	rekisteröintipäivä
+	estää
+	estetyt
+	
+	}
+
+Keskustelualue: 
+	{
+	alueID
+	alueen/kanavan nimi (esim työhyvinvointi)
+	}
+
+Viestiketju: 
+	{
+	ketjuID
+	alueID
+	käyttäjäID 
+	luontiaika
+	otsikko/aihe
+	}
+
+Viestit: 
+	{
+	viestiID
+	ketjuID
+	alueID
+	käyttäjäID
+	viestin sisältö 
+	lähetysaika
+	}
