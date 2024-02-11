@@ -60,6 +60,7 @@ Käyttäjät:
 	sukunimi
 	salasana
 	sähköposti
+	kaupunki
 	käyttäjärooli
 	rekisteröintipäivä
 	estää
@@ -67,22 +68,23 @@ Käyttäjät:
 	
 	}
 
-Keskustelualue: 
+Kategoria: 
 	{
 	alueID
 	alueen/kanavan nimi (esim työhyvinvointi)
 	}
 
-Viestiketju: 
+Paivitys: 
 	{
 	ketjuID
 	alueID
 	käyttäjäID 
 	luontiaika
-	otsikko/aihe
+	otsikko
+	sisalto
 	}
 
-Viestit: 
+kommentti: 
 	{
 	viestiID
 	ketjuID

@@ -11,6 +11,8 @@ mongoose.connect(url);
 //Käyttäjän päiväkirjakirjaus
 const paivakirjaKirjausSkeema = new mongoose.Schema({
   kirjausId: mongoose.Schema.Types.ObjectId,
+  kayttajaID: mongoose.Schema.Types.ObjectId,
+  paivakirjaID: mongoose.Schema.Types.ObjectId,
   kirjattu: Date,
   paivanFiilis: Number,
   sisalto: String,
