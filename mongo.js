@@ -77,6 +77,50 @@ const Kayttaja = mongoose.model(
   "kayttajat"
 );
 
+//Tästä alkaa yhdistysmuutokset malleihin
+// --------------------------------------
+const PaivakirjaKirjaus = mongoose.model(
+  "PaivakirjaKirjaus",
+  new mongoose.Schema({
+    kirjaus_id: mongoose.Schema.Types.ObjectId,
+    kayttaja_id: mongoose.Schema.Types.ObjectId,
+    paivakirja_id: mongoose.Schema.Types.ObjectId,
+    kirjattu: Date,
+    paivanFiilis: Number,
+    sisalto: String,
+  }),
+  "paivakirjaKirjaukset"
+);
+
+const FiilisPaivakirja = mongoose.model(
+  "FiilisPaivakirja",
+  new mongoose.Schema({
+    paivakirja_id: mongoose.Schema.Types.ObjectId,
+    kayttaja_id: mongoose.Schema.Types.ObjectId, //Käyttäjän id; muutetaan oikeaan muotoon, kun tiedetään, missä muodossa ovat
+    edellisetFiilikset: [Number],
+    kirjaus_id: [mongoose.Schema.Types.ObjectId], //taulukko päiväkirjakirjausten id tunnuksia
+  }),
+  "fiilisPaivakirjat"
+);
+
+const TietopankkiKirjaus = mongoose.model(
+  "TietopankkiKirjaus",
+  new mongoose.Schema({
+    tietopankkiKirjaus_id: mongoose.Schema.Types.ObjectId,
+    lisatty: Date,
+    muokattu: Date,
+    kayttaja_id: mongoose.Schema.Types.ObjectId, //HUOM! Tämä muuttunee
+    sisalto: {
+      otsikko: String,
+      leipateksti: String,
+    },
+    linkit: String,
+  }),
+  "tietopankkiKirjaukset"
+);
+// Tähän loppuu yhdistysmuutokset
+//-------------------------------
+
 const { ObjectId } = mongoose.Types;
 
 //Funktiokutsut
@@ -107,6 +151,40 @@ async function run() {
     luontiaika: new Date(),
     otsikko: "Uusi paivitys",
   });
+
+  //Tästä alkaa yhdistysmuutokset
+  //------------------------------
+  await tallennaTieto(PaivakirjaKirjaus, {
+    kirjaus_id: new ObjectId(),
+    kayttaja_id: new ObjectId("65c8850cf2d4cbbc7bed2677"), //Aku Ankan id?
+    paivakirja_id: new ObjectId(),
+    kirjattu: new Date(),
+    paivanFiilis: 5,
+    sisalto: "Tänään on vitosen fiilis. Tähän voi kirjoittaa vapaasti tekstiä.",
+  });
+
+  await tallennaTieto(FiilisPaivakirja, {
+    paivakirja_id: new ObjectId(),
+    kayttaja_id: new ObjectId("65c8850cf2d4cbbc7bed2677"), //Aku Ankan id?
+    edellisetFiilikset: [2, 3, 4, 5, 5],
+    kirjaus_id: [],
+  });
+
+  await tallennaTieto(TietopankkiKirjaus, {
+    tietopankkiKirjaus_id: new ObjectId(),
+    lisatty: new Date(),
+    muokattu: new Date(),
+    lisannyt: new ObjectId("65c8850cf2d4cbbc7bed2677"),
+    sisalto: {
+      otsikko: "Tässä on uusi tietopankkikirjaus",
+      leipateksti:
+        "Tässä on esimerkkinä vähän tekstiä tietopankkikirjaukseen. Tähän pitäisi mahtua paljon tekstiä vaivatta.",
+    },
+    linkit: "esimerkki.linkki/testi",
+  });
+
+  //Tähän loppuu yhdistysmuutokset
+  //-------------------------------
 }
 
 run();

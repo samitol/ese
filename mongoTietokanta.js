@@ -28,7 +28,7 @@ const fiilisPaivakirjaSkeema = new mongoose.Schema({
   paivakirjaId: mongoose.Schema.Types.ObjectId,
   kayttaja_id: mongoose.Schema.Types.ObjectId, //Käyttäjän id; muutetaan oikeaan muotoon, kun tiedetään, missä muodossa ovat
   edellisetFiilikset: [Number],
-  kirjaukset: [mongoose.Schema.Types.ObjectId], //taulukko päiväkirjakirjausten id tunnuksia
+  kirjaus_id: [mongoose.Schema.Types.ObjectId], //taulukko päiväkirjakirjausten id tunnuksia
 });
 
 const FiilisPaivakirja = mongoose.model(
