@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
+require("dotenv").config();
 
-const salasana = process.argv[2];
+const salasana = process.env.DB_PASSWORD;
 
-const url =
-  "mongodb+srv://AvustajaAppDev:<password>@avustajaappcluster.gbtovsa.mongodb.net/?retryWrites=true&w=majority";
+const url = `mongodb+srv://AvustajaAppDev:${salasana}@avustajaappcluster.gbtovsa.mongodb.net/?retryWrites=true&w=majority`;
 
 mongoose.set("strictQuery", true);
 mongoose.connect(url);
