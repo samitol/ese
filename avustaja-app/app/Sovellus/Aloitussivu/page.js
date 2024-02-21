@@ -35,14 +35,16 @@ export default function Page() {
 
 function AjankohtaistaIkkuna({ type, title }) {
   return (
-    <div className="rounded-xl bg-gray-50 p-2 shadow-sm max-w-xs hover:bg-blue-500">
-      <p className="truncate rounded-xl bg-gradient-to-tr from-white to-blue-500 px-4 py-8 text-center text-2xl ">
-        {type}
-      </p>
-      <div className="flex p-4">
-        <h3 className="truncate ml-2 text-sm font-medium">{title}</h3>
+    <button className="">
+      <div className="rounded-xl border-2 border-white bg-gray-50 p-2 max-w-xs hover:border-blue-200">
+        <p className="truncate rounded-xl bg-gradient-to-tr from-white to-blue-500 px-4 py-8 text-center text-2xl ">
+          {type}
+        </p>
+        <div className="flex p-4">
+          <h3 className="truncate ml-2 text-sm font-medium">{title}</h3>
+        </div>
       </div>
-    </div>
+    </button>
   );
 }
 
@@ -95,15 +97,17 @@ function UusimmatTietopankki({}) {
 
 function UusimmatIkkuna({ otsikko }) {
   return (
-    <div className="py-1">
-      <div className="rounded-md bg-gradient-to-bl from-white to-gray-50 p-1 max-h-12 hover:to-blue-500">
-        <div className="grid grid-cols-6 truncate rounded-sm bg-white px-4 text-left text-xl ">
-          <p className="col-span-1">
-            <BookOpenIcon className="h-6 w-6 text-gray-500" />
-          </p>
-          <p className="col-span-5 truncate">{otsikko}</p>
+    <button className="w-full">
+      <div className="py-1">
+        <div className="rounded-md bg-gradient-to-bl from-white to-gray-50 p-1 max-h-12 hover:to-blue-100">
+          <div className="grid grid-cols-6 truncate rounded-sm bg-white px-4 text-left text-xl ">
+            <p className="col-span-1">
+              <BookOpenIcon className="h-6 w-6 text-gray-500" />
+            </p>
+            <p className="col-span-5 truncate">{otsikko}</p>
+          </div>
         </div>
       </div>
-    </div>
+    </button>
   );
 }
