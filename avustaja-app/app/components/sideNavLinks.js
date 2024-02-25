@@ -34,7 +34,7 @@ const links = [
   },
 ];
 
-export default function NavLinks({ showText }) {
+export default function NavLinks({ showText, setState }) {
   const pathname = usePathname();
 
   return (
@@ -46,14 +46,15 @@ export default function NavLinks({ showText }) {
             key={link.name}
             href={link.href}
             className={clsx(
-              "flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-4 text-sm font-medium hover:bg-slate-300 md:flex-none md:justify-start px-6",
+              "flex h-[48px] grow items-center justify-start gap-2 rounded-md bg-gray-50 p-4 text-sm font-medium hover:bg-slate-300 md:flex-none px-6",
               {
                 "bg-slate-200": pathname === link.href,
               }
             )}
+            onClick={() => setState(false)}
           >
             <LinkIcon className="w-6" />
-            {showText ? <p className="hidden md:block">{link.name}</p> : null}
+            {showText ? <p>{link.name}</p> : null}
           </Link>
         );
       })}
