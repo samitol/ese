@@ -1,4 +1,5 @@
 import { BookOpenIcon } from "@heroicons/react/24/outline";
+import { tietopankkiKirjaus, ajankohtaistaIkkunaData } from "./testidataa";
 
 export default function Page() {
   return (
@@ -12,18 +13,15 @@ export default function Page() {
         </div>
       </div>
       <div className="flex justify between grid gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
-        {/*Tämä kattaa ajankohtaista kortit */}
-        <AjankohtaistaIkkuna
-          type="Uutinen"
-          title="Tärkeää tietoa avustajille"
-        />
-        <AjankohtaistaIkkuna type="Tapahtuma" title="Tapahtuma 1.5.2024" />
-        <AjankohtaistaIkkuna type="Tapahtuma" title="Tule kahville 20.4.2024" />
-        <AjankohtaistaIkkuna type="Uutinen" title="Verottaja ilmoittaa" />
-        <AjankohtaistaIkkuna
-          type="Uutinen"
-          title="Vinkkejä avustajan arkeen kertoo psykologi Minna Meikäläinen"
-        />
+        {ajankohtaistaIkkunaData.map((ikkuna) => {
+          return (
+            <AjankohtaistaIkkuna
+              key={ikkuna}
+              type={ikkuna.type}
+              title={ikkuna.title}
+            />
+          );
+        })}
       </div>
       <div className="grid sm:grid-cols-1 md:grid-cols-2 py-8 gap-4">
         <PaivakirjaKooste />
@@ -65,30 +63,13 @@ function UusimmatTietopankki({}) {
       <h2 className="font-bold text-lg">Uusimmat tietopankista</h2>
       <div className="flex grow flex-col justify-between rounded-xl bg-gray-50 p-4">
         <ul className="list-none">
-          <li>
-            <UusimmatIkkuna otsikko="Otsikko 1 on lyhyt" />
-          </li>
-          <li>
-            <UusimmatIkkuna otsikko="Otsikko 2 on pitkä. Mitenköhän tämä sen näyttää silloin, jos on pitkä otsikko." />
-          </li>
-          <li>
-            <UusimmatIkkuna otsikko="Otsikko 3" />
-          </li>
-          <li>
-            <UusimmatIkkuna otsikko="Otsikko 4" />
-          </li>
-          <li>
-            <UusimmatIkkuna otsikko="Otsikko 1" />
-          </li>
-          <li>
-            <UusimmatIkkuna otsikko="Otsikko 2" />
-          </li>
-          <li>
-            <UusimmatIkkuna otsikko="Otsikko 3" />
-          </li>
-          <li>
-            <UusimmatIkkuna otsikko="Otsikko 4" />
-          </li>
+          {tietopankkiKirjaus.map((kirjaus) => {
+            return (
+              <li key={kirjaus.tietopankkiKirjaus_id}>
+                <UusimmatIkkuna otsikko={kirjaus.sisalto.otsikko} />
+              </li>
+            );
+          })}
         </ul>
       </div>
     </div>
