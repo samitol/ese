@@ -9,7 +9,7 @@ export default function Page() {
       <div className="flex grow justify-center items-center">
         <div className="container relative isolate overflow-hidden bg-slate-100 px-6 pt-8 shadow-lg rounded-2xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
           <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
-            <Logo />
+            <Logo className="flex title-font justify-center lg:justify-start font-semibold items-center text-blue-900" />
             <h1 className="mt-8 text-3xl font-bold tracking-tight sm:text-4xl">
               Aloita käyttämään appia. Verkostoidu muiden avustajien kanssa
             </h1>
@@ -31,6 +31,14 @@ export default function Page() {
               >
                 Rekisteröidy
                 <ArrowRightIcon className="w-4 h-4 self-center" />
+              </Link>
+            </div>
+            <div className="mt-5 flex items-center justify-center lg:justify-start">
+              <Link
+                href="/sovellus/aloitussivu"
+                className="text-xs font-semibold leading-6 flex px-2 text-slate-500 hover:text-slate-700"
+              >
+                Demoa appia
               </Link>
             </div>
           </div>
