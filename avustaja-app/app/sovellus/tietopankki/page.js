@@ -1,7 +1,8 @@
 import React from "react";
+import { tietopankkiKirjaus } from "./testidataa";
 
 function Tietopankki() {
-  return <div>Tietopankki</div>;
+  return <div className="flex justify-center">Tietopankki</div>;
 }
 
 export default Tietopankki;
