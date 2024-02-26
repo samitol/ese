@@ -24,10 +24,13 @@ function SideNav() {
     >
       <div className="mb-2 flex justify-start gap-5 rounded-md bg-slate-50 p-4 justify-between">
         {/**Ei mobiililaitteilla näkyvä logo */}
-        <Logo
-          className="hidden md:flex title-font justify-center lg:justify-start font-semibold items-center text-blue-900 px-2"
-          showText={isOpen}
-        />
+        {isOpen ? (
+          <Logo
+            className="hidden md:flex title-font justify-center lg:justify-start font-semibold items-center text-blue-900 px-2"
+            showText={isOpen}
+          />
+        ) : null}
+
         {/** Mobiililaitteella näkyvä logo */}
         <Logo
           className="flex title-font justify-center lg:justify-start font-semibold items-center text-blue-900 md:hidden"
@@ -38,7 +41,7 @@ function SideNav() {
             <XMarkIcon className="w-6 h-6" />
           </button>
         ) : (
-          <button onClick={() => setIsOpen(true)}>
+          <button className="mx-auto" onClick={() => setIsOpen(true)}>
             <Bars3Icon className="w-6 h-6" />
           </button>
         )}
