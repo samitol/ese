@@ -34,7 +34,7 @@ const links = [
   },
 ];
 
-export default function NavLinks({ showText, setState }) {
+export default function NavLinks({ showText }) {
   const pathname = usePathname();
 
   return (
@@ -51,7 +51,6 @@ export default function NavLinks({ showText, setState }) {
                 "bg-slate-200": pathname === link.href,
               }
             )}
-            onClick={() => setState(false)}
           >
             <LinkIcon className="w-6" />
             {showText ? <p>{link.name}</p> : null}

@@ -41,7 +41,7 @@ function SideNav() {
             <XMarkIcon className="w-6 h-6" />
           </button>
         ) : (
-          <button className="mx-auto" onClick={() => setIsOpen(true)}>
+          <button className="md:mx-auto" onClick={() => setIsOpen(true)}>
             <Bars3Icon className="w-6 h-6" />
           </button>
         )}
@@ -50,8 +50,8 @@ function SideNav() {
       {/*Mobiililaitteilla näkyvä navigointivalikko */}
       {isOpen ? (
         <div className="md:hidden">
-          <div className="flex grow flex-col justify-between space-x-2 space-x-0 space-y-2">
-            <NavLinks showText={true} />
+          <div className="flex grow flex-col justify-between space-x-0 space-y-2">
+            <NavLinks showText={true} setState={setIsOpen} />
             <div className="hidden h-auto w-full grow rounded-md bg-gray-50 md:block"></div>
             <Link href="/">
               <button className="flex h-[48px] w-full grow items-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-slate-300 md:flex-none md:justify-start md:p-2 px-6">
@@ -65,8 +65,8 @@ function SideNav() {
 
       {/*Pöytäkoneilla näkyvä navigointivalikko */}
       <div className="hidden md:contents">
-        <div className="flex grow flex-col justify-between space-x-2 space-x-0 space-y-2">
-          <NavLinks showText={isOpen ? true : false} setState={setIsOpen} />
+        <div className="flex grow flex-col justify-between space-x-0 space-y-2">
+          <NavLinks showText={isOpen ? true : false} />
           <div className="hidden h-auto w-full grow rounded-md bg-gray-50 md:block"></div>
           <Link href="/">
             <button className="flex h-[48px] w-full grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-slate-300 md:flex-none md:justify-start md:p-2 md:px-6">
