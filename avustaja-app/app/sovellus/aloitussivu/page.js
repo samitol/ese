@@ -1,5 +1,6 @@
 import { BookOpenIcon } from "@heroicons/react/24/outline";
 import { tietopankkiKirjaus, ajankohtaistaIkkunaData } from "./testidataa";
+import Link from "next/link";
 
 export default function Page() {
   return (
@@ -66,7 +67,11 @@ function UusimmatTietopankki({}) {
           {tietopankkiKirjaus.map((kirjaus) => {
             return (
               <li key={kirjaus.tietopankkiKirjaus_id}>
-                <UusimmatIkkuna otsikko={kirjaus.sisalto.otsikko} />
+                <Link
+                  href={`/sovellus/tietopankki/${kirjaus.tietopankkiKirjaus_id}`}
+                >
+                  <UusimmatIkkuna otsikko={kirjaus.sisalto.otsikko} />
+                </Link>
               </li>
             );
           })}
