@@ -15,7 +15,7 @@ export default function Asetukset({}) {
 
 function SovellusTeema() {
   return (
-    <div className=" border rounded-md p-4 mb-4">
+    <div className="rounded shadow p-8 mb-4">
       <h2 className="text-bold text-lg mb-2">Sovellusteema</h2>
       <div className="flex items-center">
         <input
@@ -23,7 +23,6 @@ function SovellusTeema() {
           id="default"
           name="theme"
           className="appearance-none rounded-full w-4 h-4 border border-gray-300 bg-white checked:bg-blue-500 focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50"
-          /*checked */
         />
         <label htmlFor="default" className="text-gray-700 ml-2">
           Järjestelmän oletustila
@@ -57,7 +56,7 @@ function SovellusTeema() {
 
 function VaihdaSalasana() {
   return (
-    <div className="border rounded-md p-4 mb-4">
+    <div className="rounded shadow p-8 mb-4">
       <h2 className="text-bold text-lg mb-4">Vaihda salasana</h2>
       <div className="flex flex-col p-4">
         <label htmlFor="currentPassword" className="text-gray-700 mb-1">
@@ -96,7 +95,7 @@ function VaihdaSalasana() {
 
 function PoistaTili() {
   return (
-    <div className="border rounded-md p-4 mb-4">
+    <div className="rounded shadow p-8 mb-4">
       <h2 className="text-bold text-lg mb-2">Tilin poistaminen</h2>
       <h2 className="mb-4">
         Poista tietosi ja kaikki tiliin liittyvät tiedot pysyvästi painamalla

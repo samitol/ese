@@ -7,7 +7,7 @@ import { useState } from "react";
 import React from "react";
 
 export default function Page() {
-  const [selectedTabIndex, setSelectedTabIndex] = useState(0); // Initial tab index
+  const [selectedTabIndex, setSelectedTabIndex] = useState(0);
 
   return (
     <div
@@ -40,11 +40,10 @@ export default function Page() {
 }
 
 function Tabs({ onTabChange }) {
-  const [selectedTabIndex, setSelectedTabIndex] = useState(0); // Initial tab index
-
+  const [selectedTabIndex, setSelectedTabIndex] = useState(0);
   const handleTabClick = (index) => {
     setSelectedTabIndex(index);
-    onTabChange && onTabChange(index); // Call optional callback if provided
+    onTabChange && onTabChange(index);
   };
 
   return (
@@ -57,7 +56,7 @@ function Tabs({ onTabChange }) {
           <button
             className={`inline-block p-4 border-b-2 rounded-t-lg ${
               selectedTabIndex === 0
-                ? "text-blue-600 border-blue-600 dark:text-gray-900 dark:border-blue-500" // Apply styles directly
+                ? "text-blue-600 border-blue-600 dark:text-gray-900 dark:border-blue-500"
                 : ""
             }`}
             data-tabs-target="#profile"
@@ -74,7 +73,7 @@ function Tabs({ onTabChange }) {
           <button
             className={`inline-block p-4 border-b-2 rounded-t-lg ${
               selectedTabIndex === 1
-                ? "text-blue-600 border-blue-600 dark:text-gray-900 dark:border-blue-500" // Apply styles directly
+                ? "text-blue-600 border-blue-600 dark:text-gray-900 dark:border-blue-500"
                 : ""
             }`}
             data-tabs-target="#settings"
